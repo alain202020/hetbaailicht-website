@@ -541,18 +541,6 @@ a:hover {
   margin-bottom: 0;
 }
 
-.notitie {
-  max-width: var(--leesbreedte);
-  margin: 0 0 1.25rem;
-  padding: 0.7rem 1rem;
-  border-left: 4px solid var(--honing);
-  border-radius: 0 var(--hoek) var(--hoek) 0;
-  background: var(--was);
-  color: var(--inkt);
-  font-size: 0.9375rem;
-  line-height: 1.45;
-}
-
 /* Naam en logo */
 .naam-raster {
   display: grid;
@@ -633,37 +621,7 @@ a:hover {
   }
 }
 
-/* ---------- Stappen (waar staan we nu) ---------- */
-.status {
-  display: inline-block;
-  padding: 0.12rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  line-height: 1.5;
-  white-space: nowrap;
-}
-
-.status-klaar {
-  background: var(--riet);
-  color: var(--wit);
-}
-
-.status-bezig {
-  background: var(--honing);
-  color: var(--schemer);
-}
-
-.status-volgende {
-  box-shadow: inset 0 0 0 2px var(--schemer);
-  color: var(--schemer);
-}
-
-.status-later {
-  color: var(--gedempt);
-  padding-left: 0;
-}
-
+/* ---------- Stappen: de route van idee tot huis ---------- */
 .marker {
   position: relative;
   z-index: 1;
@@ -674,27 +632,16 @@ a:hover {
 }
 
 .marker polygon {
-  stroke-width: 3;
-}
-
-.stap-klaar .marker polygon {
-  fill: var(--riet);
-  stroke: var(--riet);
-}
-
-.stap-bezig .marker polygon {
   fill: var(--honing);
-  stroke: var(--honing-donker);
-}
-
-.stap-volgende .marker polygon {
-  fill: var(--wit);
   stroke: var(--schemer);
+  stroke-width: 2.5;
 }
 
-.stap-later .marker polygon {
-  fill: var(--dijk);
-  stroke: #7d8a96;
+.marker text {
+  fill: var(--schemer);
+  font-family: var(--kop);
+  font-size: 15px;
+  font-weight: 750;
 }
 
 /* Korte versie op de homepage */
@@ -711,7 +658,7 @@ a:hover {
   display: grid;
   grid-template-columns: 2rem 1fr;
   column-gap: 1rem;
-  align-items: start;
+  align-items: center;
   margin: 0;
   padding-bottom: 1.25rem;
 }
@@ -735,7 +682,7 @@ a:hover {
 }
 
 .stappen-kort .marker {
-  grid-row: span 2;
+  align-self: center;
 }
 
 .stap-naam {
@@ -744,11 +691,6 @@ a:hover {
   font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.25;
-}
-
-.stappen-kort .status {
-  justify-self: start;
-  margin-top: 0.2rem;
 }
 
 @media (min-width: 56rem) {
@@ -774,8 +716,8 @@ a:hover {
     border-top: 2px solid var(--lijn);
   }
 
-  .stappen-kort .status {
-    margin-top: 0;
+  .stappen-kort .marker {
+    align-self: flex-start;
   }
 }
 
@@ -814,11 +756,7 @@ a:hover {
 }
 
 .stappen h3 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.35rem 0.75rem;
-  margin: 0.1rem 0 0.35rem;
+  margin: 0.15rem 0 0.35rem;
   font-size: 1.25rem;
 }
 
@@ -916,8 +854,7 @@ a:hover {
   font-size: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
 }
 
-.tekst > h2:first-child,
-.tekst > .notitie:first-child + h2 {
+.tekst > h2:first-child {
   margin-top: 0;
 }
 
@@ -927,6 +864,11 @@ a:hover {
 
 .stappen-sectie h2 {
   font-size: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+}
+
+.stappen-sectie > p {
+  max-width: var(--leesbreedte);
+  margin-bottom: 1.5rem;
 }
 
 .meedoen-blok.los {

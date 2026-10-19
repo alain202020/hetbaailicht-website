@@ -2,7 +2,15 @@
 
 Dit is de website van wooncoöperatie Het Baailicht (in oprichting). Het zijn gewone HTML-pagina's met één stylesheet en een klein script. Er is geen framework, geen database en geen login, dus er valt weinig te hacken of bij te houden.
 
-**Status:** conceptversie, oktober 2026. De groep moet de teksten nog goedkeuren. Zoekmachines worden geweerd tot de livegang.
+**Status:** conceptversie, oktober 2026. Zoekmachines worden geweerd tot de livegang.
+
+## Wat wel en niet op de site hoort
+
+De site is openbaar. Zet er alleen algemene informatie op: wie we zijn, waar we voor staan en hoe je meedoet.
+
+- **Wel:** onze visie, uitleg over wooncoöperaties, voorbeelden van andere wooncoöperaties (zoals De Warren), nieuws dat voor iedereen bedoeld is.
+- **Niet:** interne informatie, zoals verslagen van vergaderingen, statuten, contributie, groepsgrootte of wie wat doet.
+- **Namen en foto's van leden:** alleen met hun toestemming.
 
 ## Wat staat waar
 
@@ -26,9 +34,9 @@ Dubbelklik op `index.html`. De site opent in je browser.
 
 - **Tekst:** open de pagina, zoek de zin en pas alleen de woorden aan. Laat alles tussen `<` en `>` staan.
 - **Menu of voettekst:** die staan op elke pagina. Pas ze dus op alle pagina's op dezelfde manier aan.
-- **Nieuwsbericht toevoegen:** kopieer in `nieuws.html` een blok `<article class="bericht" ...>` naar boven, geef het een nieuwe `id` en pas titel, datum en tekst aan. Zet het bericht ook in het rijtje "Nieuws" op `index.html` (daar staan de twee nieuwste).
-- **Stand van de stappen:** staat op twee plekken, kort op `index.html` en uitgebreid op `ons-plan.html`. Per stap staat er `stap-klaar`, `stap-bezig`, `stap-volgende` of `stap-later`, met het label erbij.
-- **Conceptmeldingen weghalen:** zoek op `Conceptversie` (bovenaan elke pagina) en op `notitie` (de gele blokjes).
+- **Nieuwsbericht toevoegen:** kopieer in `nieuws.html` een blok `<article class="bericht" ...>` naar boven, geef het een nieuwe `id` en pas titel, datum en tekst aan. Zet het bericht ook in het rijtje "Nieuws" op `index.html` (daar staan de nieuwste).
+- **De route van idee tot huis:** staat op twee plekken, kort op `index.html` en uitgebreid op `ons-plan.html`. Het is een algemene uitleg, niet onze eigen voortgang.
+- **Conceptmelding weghalen:** zoek op `Conceptversie` (bovenaan elke pagina).
 
 Twijfel je? Vraag het aan Claude en geef dit bestand mee.
 
@@ -61,7 +69,7 @@ Twijfel je? Vraag het aan Claude en geef dit bestand mee.
 
 Goed om te weten: zolang de site op `github.io/hetbaailicht-website/` staat, ziet de foutpagina er bij diepe, kapotte links soms kaal uit. Op het eigen domein werkt hij gewoon.
 
-## Getest op 19 oktober 2026
+## Getest op 20 oktober 2026
 
 - HTML-validatie met html-validate: geen fouten
 - Toegankelijkheid met axe-core (WCAG 2.2 A en AA plus best practices), op computer en telefoon: geen fouten
