@@ -1,0 +1,6 @@
+# Conceptversie: zoekmachines hoeven deze site nog niet op te nemen.
+# Bij de livegang op hetbaailicht.nl vervang je dit door:
+#   User-agent: *
+#   Allow: /
+User-agent: *
+Disallow: /

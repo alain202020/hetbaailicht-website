@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-110 -46 220 252" width="220" height="252">
+<g stroke-linejoin="round">
+<polygon points="0.00,-40.00 34.64,-20.00 34.64,20.00 0.00,40.00 -34.64,20.00 -34.64,-20.00" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<polygon points="-34.64,20.00 0.00,40.00 0.00,80.00 -34.64,100.00 -69.28,80.00 -69.28,40.00" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<polygon points="34.64,20.00 69.28,40.00 69.28,80.00 34.64,100.00 0.00,80.00 0.00,40.00" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<polygon points="-69.28,80.00 -34.64,100.00 -34.64,140.00 -69.28,160.00 -103.92,140.00 -103.92,100.00" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<polygon points="0.00,80.00 34.64,100.00 34.64,140.00 0.00,160.00 -34.64,140.00 -34.64,100.00" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<polygon points="69.28,80.00 103.92,100.00 103.92,140.00 69.28,160.00 34.64,140.00 34.64,100.00" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<rect x="-10" y="-12" width="20" height="24" rx="2.5" fill="#FFE6A8" stroke="#16324F" stroke-width="2.5"/>
+<rect x="-44.64" y="48" width="20" height="24" rx="2.5" fill="#C98A1E" stroke="#16324F" stroke-width="2.5"/>
+<rect x="24.64" y="48" width="20" height="24" rx="2.5" fill="#FFE6A8" stroke="#16324F" stroke-width="2.5"/>
+<rect x="-79.28" y="108" width="20" height="24" rx="2.5" fill="#FFE6A8" stroke="#16324F" stroke-width="2.5"/>
+<rect x="-10" y="108" width="20" height="24" rx="2.5" fill="#C98A1E" stroke="#16324F" stroke-width="2.5"/>
+<rect x="59.28" y="108" width="20" height="24" rx="2.5" fill="#FFE6A8" stroke="#16324F" stroke-width="2.5"/>
+</g>
+<path d="M-92 181 q11.5 -7 23 0 t23 0 t23 0 t23 0 t23 0 t23 0 t23 0 t23 0" fill="none" stroke="#A9C2D8" stroke-width="7" stroke-linecap="round"/>
+<path d="M-64 200 q10.67 -7 21.33 0 t21.33 0 t21.33 0 t21.33 0 t21.33 0 t21.33 0" fill="none" stroke="#A9C2D8" stroke-width="7" stroke-linecap="round"/>
+</svg>

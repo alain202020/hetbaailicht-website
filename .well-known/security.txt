@@ -1,0 +1,4 @@
+# Zie je een beveiligingsprobleem op deze website? Mail ons, dan lossen we het op.
+Contact: mailto:info@hetbaailicht.nl
+Expires: 2027-10-19T00:00:00.000Z
+Preferred-Languages: nl, en
