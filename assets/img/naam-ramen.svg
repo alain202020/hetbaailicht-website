@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" overflow="hidden">
+<clipPath id="kader"><rect width="480" height="360"/></clipPath><g clip-path="url(#kader)">
+<defs><filter id="g" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter></defs>
+<rect width="480" height="360" fill="#16324F"/>
+<polygon points="35.6,69 131.7,124.5 131.7,235.5 35.6,291 -60.5,235.5 -60.5,124.5" fill="#1B3B5C"/>
+<polygon points="444.4,69 540.5,124.5 540.5,235.5 444.4,291 348.3,235.5 348.3,124.5" fill="#1B3B5C"/>
+<polygon points="137.8,-108 233.9,-52.5 233.9,58.5 137.8,114 41.7,58.5 41.7,-52.5" fill="#1B3B5C"/>
+<polygon points="342.2,-108 438.3,-52.5 438.3,58.5 342.2,114 246.1,58.5 246.1,-52.5" fill="#1B3B5C"/>
+<polygon points="137.8,246 233.9,301.5 233.9,412.5 137.8,468 41.7,412.5 41.7,301.5" fill="#1B3B5C"/>
+<polygon points="342.2,246 438.3,301.5 438.3,412.5 342.2,468 246.1,412.5 246.1,301.5" fill="#1B3B5C"/>
+<polygon points="240,69 336.1,124.5 336.1,235.5 240,291 143.9,235.5 143.9,124.5" fill="#234B71"/>
+<circle cx="240" cy="184" r="80" fill="#F2A93B" opacity="0.4" filter="url(#g)"/>
+<rect x="208" y="144" width="64" height="80" rx="7.7" fill="#FFE6A8"/><path d="M240 144v80M208 184h64" stroke="#C98A1E" stroke-width="4.5"/>
+<rect x="117.8" y="8" width="40" height="50" rx="4.8" fill="#0E2236"/>
+<rect x="424.4" y="159" width="40" height="50" rx="4.8" fill="#FFE6A8"/><path d="M444.4 159v50M424.4 184h40" stroke="#C98A1E" stroke-width="2.8"/>
+</g>
+</svg>

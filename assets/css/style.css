@@ -1,5 +1,7 @@
 /* ==========================================================================
    Het Baailicht — stylesheet
+   Opbouw in de stijl van De Warren: grote beeldvlakken over de hele breedte,
+   gecentreerde koppen, ronde knoppen, afgewisseld met rustige witte blokken.
    Eén bestand, geen framework. Kleuren en maten staan bovenaan als variabelen.
    ========================================================================== */
 
@@ -13,9 +15,9 @@
 }
 
 @font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("../fonts/atkinson-hyperlegible-next-latin-wght.woff2") format("woff2");
-  font-weight: 200 800;
+  font-family: "Literata";
+  src: url("../fonts/literata-latin-wght.woff2") format("woff2");
+  font-weight: 200 900;
   font-style: normal;
   font-display: swap;
 }
@@ -23,31 +25,38 @@
 /* ---------- Huisstijl ---------- */
 :root {
   /* Kleuren */
-  --schemer: #16324f;        /* donkerblauw: koppen, links, bovenkant homepage, voettekst */
-  --schemer-licht: #21486b;  /* cellen in de illustratie */
-  --schemer-diep: #0e2236;   /* donkere ramen, silhouetten */
-  --honing: #f2a93b;         /* het licht: ramen, knoppen op donker */
+  --schemer: #16324f;        /* donkerblauw: koppen, links, voettekst */
+  --diep: #0e2236;           /* nachtblauw: bovenkant homepage */
+  --honing: #f2a93b;         /* het licht: knoppen, ramen */
   --honing-hover: #f6bc5e;
-  --honing-donker: #8a5a10;  /* randen bij honing */
-  --was: #ffe6a8;            /* zachte gloed */
-  --riet: #47643d;           /* groen van het eiland */
-  --dijk: #f2f4ec;           /* achtergrond */
+  --honing-donker: #8a5a10;
+  --was: #ffe6a8;            /* zachte gloed: conceptmelding, meedoen-blok */
+  --riet: #47643d;
+  --dijk: #f2f4ec;           /* rustige achtergrond tussen de beeldvlakken */
   --wit: #ffffff;
   --inkt: #1b2a38;           /* lopende tekst */
   --gedempt: #556270;        /* kleine, minder belangrijke tekst */
-  --lijn: #ccd3c2;           /* scheidingslijnen */
-  --voet-tekst: #c9d3dc;     /* tekst op donkerblauw */
+  --lijn: #d6dbd0;           /* scheidingslijnen */
+  --licht-tekst: #eef2f5;    /* tekst op donker beeld */
+  --voet-tekst: #c9d3dc;
 
   /* Letters */
   --kop: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
-  --tekst: "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --tekst: "Literata", Georgia, "Times New Roman", serif;
 
   /* Maten */
   --breed: 72rem;
   --leesbreedte: 40rem;
   --rand: clamp(1rem, 0.6rem + 2vw, 2rem);
-  --sectie: clamp(3rem, 2rem + 4vw, 6rem);
+  --sectie: clamp(3.5rem, 2.5rem + 4vw, 6.5rem);
+  --kop-ruimte: 8.5rem;      /* ruimte voor de kop die over het beeld ligt */
   --hoek: 0.5rem;
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --kop-ruimte: 7.25rem;
+  }
 }
 
 /* ---------- Basis ---------- */
@@ -60,16 +69,15 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  scroll-padding-top: 1rem;
 }
 
 body {
   margin: 0;
-  background: var(--dijk);
+  background: var(--wit);
   color: var(--inkt);
   font-family: var(--tekst);
   font-size: 1.125rem;
-  line-height: 1.6;
+  line-height: 1.7;
   text-rendering: optimizeLegibility;
 }
 
@@ -100,13 +108,13 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+  font-size: clamp(2.4rem, 1.5rem + 3.4vw, 4rem);
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
 }
 
 h3 {
@@ -184,10 +192,11 @@ a:hover {
   position: absolute;
   left: 1rem;
   top: -10rem;
-  z-index: 10;
+  z-index: 50;
   padding: 0.75rem 1rem;
   background: var(--schemer);
   color: var(--wit);
+  font-family: var(--kop);
   font-weight: 700;
   border-radius: var(--hoek);
 }
@@ -197,24 +206,31 @@ a:hover {
   outline-color: var(--honing);
 }
 
-/* ---------- Conceptmelding ---------- */
+/* ---------- Kop van de site: ligt over het beeld, zoals bij De Warren ---------- */
+.kop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  color: var(--wit);
+}
+
+.kop :focus-visible {
+  outline-color: var(--honing);
+}
+
 .concept {
   background: var(--was);
   color: var(--schemer);
+  font-family: var(--kop);
   font-size: 0.9375rem;
   line-height: 1.4;
-  border-bottom: 1px solid #e3c77f;
 }
 
 .concept p {
   margin: 0;
-  padding-block: 0.55rem;
-}
-
-/* ---------- Kop van de site ---------- */
-.kop {
-  background: var(--dijk);
-  border-bottom: 1px solid var(--lijn);
+  padding-block: 0.5rem;
 }
 
 .kop-binnen {
@@ -223,14 +239,14 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
-  padding-block: 0.7rem;
+  padding-block: 0.9rem;
 }
 
 .merk {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  color: var(--schemer);
+  color: var(--wit);
   font-family: var(--kop);
   font-size: 1.35rem;
   font-weight: 800;
@@ -255,13 +271,16 @@ a:hover {
   align-items: center;
   gap: 0.5rem;
   min-height: 2.75rem;
-  padding: 0.5rem 0.9rem;
-  border: 2px solid var(--schemer);
-  border-radius: var(--hoek);
+  padding: 0.5rem 1.1rem;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
   background: transparent;
-  color: var(--schemer);
-  font: inherit;
+  color: var(--wit);
+  font-family: var(--kop);
+  font-size: 0.875rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -283,7 +302,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.25rem 1.35rem;
+  gap: 0.25rem 1.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -296,29 +315,31 @@ a:hover {
 .hoofdmenu a {
   display: inline-block;
   padding: 0.45rem 0;
-  color: var(--inkt);
-  font-weight: 600;
+  color: var(--wit);
+  font-family: var(--kop);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .hoofdmenu a:hover {
-  color: var(--schemer);
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-decoration-color: var(--honing-donker);
+  text-decoration-color: var(--honing);
+  text-underline-offset: 0.35em;
 }
 
 .hoofdmenu a[aria-current="page"] {
-  color: var(--schemer);
-  box-shadow: inset 0 -3px 0 var(--schemer);
+  box-shadow: inset 0 -2px 0 var(--honing);
 }
 
 .hoofdmenu .menu-meedoen a {
-  padding: 0.55rem 1.1rem;
-  border-radius: var(--hoek);
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
   background: var(--honing);
   color: var(--schemer);
-  font-weight: 700;
 }
 
 .hoofdmenu .menu-meedoen a:hover {
@@ -327,7 +348,7 @@ a:hover {
 }
 
 .hoofdmenu .menu-meedoen a[aria-current="page"] {
-  box-shadow: inset 0 0 0 2px var(--schemer);
+  box-shadow: inset 0 0 0 2px var(--wit);
 }
 
 /* Smal scherm met JavaScript: menu achter een knop */
@@ -343,52 +364,59 @@ a:hover {
 
   .js .hoofdmenu.is-open {
     display: block;
+    flex: 0 0 calc(100% + 2 * var(--rand));
+    margin-inline: calc(-1 * var(--rand));
+    padding: 0.25rem var(--rand) 1rem;
+    background: var(--diep);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
   }
 
   .js .hoofdmenu ul {
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding-bottom: 0.75rem;
   }
 
   .js .hoofdmenu a {
     display: block;
-    padding: 0.8rem 0;
-    border-top: 1px solid var(--lijn);
+    padding: 0.85rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .js .hoofdmenu a[aria-current="page"] {
-    box-shadow: inset 4px 0 0 var(--schemer);
+    box-shadow: inset 4px 0 0 var(--honing);
     padding-left: 0.85rem;
   }
 
   .js .hoofdmenu .menu-meedoen a {
     margin-top: 0.75rem;
-    padding: 0.8rem 1rem;
+    padding: 0.85rem 1rem;
     border-top: 0;
     text-align: center;
   }
 
   .js .hoofdmenu .menu-meedoen a[aria-current="page"] {
-    box-shadow: inset 0 0 0 2px var(--schemer);
+    box-shadow: inset 0 0 0 2px var(--wit);
     padding-left: 1rem;
   }
 }
 
-/* ---------- Knoppen ---------- */
+/* ---------- Knoppen: rond, zoals bij De Warren ---------- */
 .knop {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 3rem;
-  padding: 0.7rem 1.35rem;
-  border-radius: var(--hoek);
-  font-size: 1.0625rem;
-  font-weight: 700;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--kop);
+  font-size: 0.875rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .knop:hover {
@@ -404,88 +432,88 @@ a:hover {
   background: var(--honing-hover);
 }
 
-.knop-blauw {
-  background: var(--schemer);
+.knop-licht {
   color: var(--wit);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.9);
 }
 
-.knop-blauw:hover {
-  background: #1f4466;
+.knop-licht:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
-.knop-lijn {
-  color: var(--dijk);
-  box-shadow: inset 0 0 0 2px var(--dijk);
+.knop-donker {
+  color: var(--schemer);
+  box-shadow: inset 0 0 0 2px var(--schemer);
 }
 
-.knop-lijn:hover {
-  background: rgba(255, 255, 255, 0.1);
+.knop-donker:hover {
+  background: rgba(22, 50, 79, 0.06);
 }
 
 .knoppen {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.75rem;
   margin-top: 1.75rem;
 }
 
-/* ---------- Homepage: bovenkant met de verlichte korf ---------- */
+/* ---------- Homepage: bovenkant met de honingraat-stad aan het water ---------- */
 .held {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: min(100svh, 62rem);
   overflow: hidden;
-  background: var(--schemer);
-  color: var(--dijk);
-  padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem) clamp(2rem, 1rem + 3vw, 4rem);
+  background: linear-gradient(180deg, #0e2236 0%, #16324f 62%, #1b4166 100%);
+  color: var(--wit);
 }
 
 .held :focus-visible {
   outline-color: var(--honing);
 }
 
-.held-raster {
-  display: grid;
-  gap: 2rem;
-  align-items: center;
+.held .sterren {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.held-inhoud {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--kop-ruimte) + clamp(1rem, 0.5rem + 3vw, 3.5rem)) var(--rand) 0;
+  text-align: center;
 }
 
 .held h1 {
-  max-width: 14ch;
-  margin-bottom: 0.45em;
-  color: var(--was);
-  font-size: clamp(2.5rem, 1.3rem + 4.4vw, 4.6rem);
-  line-height: 1.02;
+  max-width: 15ch;
+  margin: 0 auto 0.45em;
+  color: var(--wit);
+  font-size: clamp(2.4rem, 1.3rem + 3.8vw, 4.25rem);
+  line-height: 1.04;
   letter-spacing: -0.025em;
 }
 
 .held .intro {
-  max-width: 31rem;
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.55;
+  max-width: 36rem;
+  margin: 0 auto;
+  color: var(--licht-tekst);
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
-.held-figuur {
-  margin: 0;
-}
-
-.held-figuur .illustratie {
+.held .stad {
+  position: relative;
   width: 100%;
-  max-width: 34rem;
-  margin-inline: auto;
-}
-
-.held-figuur figcaption {
-  max-width: 30rem;
-  margin: 0.5rem auto 0;
-  color: var(--voet-tekst);
-  font-size: 0.9375rem;
-  text-align: center;
-}
-
-@media (min-width: 56rem) {
-  .held-raster {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    gap: 3rem;
-  }
+  height: clamp(13rem, 30vw, 25rem);
+  margin-top: clamp(1.5rem, 1rem + 2vw, 3rem);
 }
 
 /* De ramen gaan één voor één aan: het enige bewegende moment op de site */
@@ -495,17 +523,28 @@ a:hover {
   animation: licht-aan 0.7s ease-out forwards;
 }
 
-.a1 { animation-delay: 0.5s; }
-.a2 { animation-delay: 0.85s; }
-.a3 { animation-delay: 1.2s; }
-.a4 { animation-delay: 1.55s; }
-.a5 { animation-delay: 1.9s; }
-.a6 { animation-delay: 2.25s; }
-.a7 { animation-delay: 2.6s; }
+.a1 { animation-delay: 0.6s; }
+.a2 { animation-delay: 0.78s; }
+.a3 { animation-delay: 0.96s; }
+.a4 { animation-delay: 1.14s; }
+.a5 { animation-delay: 1.32s; }
+.a6 { animation-delay: 1.5s; }
+.a7 { animation-delay: 1.68s; }
+.a8 { animation-delay: 1.86s; }
+.a9 { animation-delay: 2.04s; }
+.a10 { animation-delay: 2.22s; }
+.a11 { animation-delay: 2.4s; }
+.a12 { animation-delay: 2.58s; }
+.a13 { animation-delay: 2.76s; }
+.a14 { animation-delay: 2.94s; }
+.a15 { animation-delay: 3.12s; }
+.a16 { animation-delay: 3.3s; }
+.a17 { animation-delay: 3.48s; }
+.a18 { animation-delay: 3.66s; }
 
 .spiegel {
   animation-duration: 1.4s;
-  animation-delay: 3s;
+  animation-delay: 3.9s;
 }
 
 @keyframes licht-aan {
@@ -523,101 +562,187 @@ a:hover {
   }
 }
 
-/* ---------- Secties ---------- */
-.sectie {
-  padding-block: var(--sectie);
+/* ---------- Beeldvlakken over de hele breedte ---------- */
+.band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(4.5rem, 3rem + 7vw, 9rem);
+  background: var(--schemer);
+  color: var(--licht-tekst);
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --band-sluier: radial-gradient(ellipse 70% 75% at 50% 50%, rgba(14, 34, 54, 0.88) 0%, rgba(14, 34, 54, 0.6) 55%, rgba(14, 34, 54, 0.25) 100%);
 }
 
-.sectie-wit {
+.band-water {
+  --band-sluier: radial-gradient(ellipse 60% 70% at 50% 48%, rgba(14, 34, 54, 0.8) 0%, rgba(14, 34, 54, 0.45) 60%, rgba(14, 34, 54, 0.05) 100%);
+}
+
+.band-groen {
+  background: #2a4326;
+  --band-sluier: radial-gradient(ellipse 65% 75% at 50% 45%, rgba(20, 33, 18, 0.9) 0%, rgba(20, 33, 18, 0.6) 55%, rgba(20, 33, 18, 0.2) 100%);
+}
+
+.band-beeld {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Een donkere sluier over het beeld, zodat de tekst altijd goed leesbaar is */
+.band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(rgba(14, 34, 54, 0.5), rgba(14, 34, 54, 0.5)), var(--band-sluier);
+}
+
+.band-groen::before {
+  background: linear-gradient(rgba(20, 33, 18, 0.5), rgba(20, 33, 18, 0.5)), var(--band-sluier);
+}
+
+.band-water::before {
+  background: linear-gradient(rgba(14, 34, 54, 0.3), rgba(14, 34, 54, 0.3)), var(--band-sluier);
+}
+
+.band .knop {
+  text-shadow: none;
+}
+
+.band :focus-visible {
+  outline-color: var(--honing);
+}
+
+.band-inhoud {
+  max-width: 46rem;
+  margin-inline: auto;
+  padding-inline: var(--rand);
+}
+
+.band h1,
+.band h2 {
+  color: var(--wit);
+}
+
+.band h2 {
+  font-size: clamp(2.2rem, 1.5rem + 2.8vw, 3.6rem);
+}
+
+.band p {
+  max-width: 36rem;
+  margin-inline: auto;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.band a:not(.knop) {
+  color: var(--wit);
+  text-decoration-color: var(--honing);
+}
+
+.band .klein-licht {
+  margin-top: 1.25rem;
+  font-size: 0.9375rem;
+}
+
+/* Kop van binnenpagina's: een kleiner beeldvlak */
+.paginakop {
+  padding-top: calc(var(--kop-ruimte) + clamp(2rem, 1.25rem + 3vw, 4.5rem));
+  padding-bottom: clamp(3rem, 2rem + 4vw, 5.5rem);
+}
+
+.paginakop h1 {
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+.paginakop .lead {
+  max-width: 38rem;
+  margin: 0 auto;
+  font-size: clamp(1.15rem, 1.05rem + 0.4vw, 1.35rem);
+}
+
+/* ---------- Witte blokken ---------- */
+.sectie {
+  padding-block: var(--sectie);
   background: var(--wit);
 }
 
+.sectie-dijk {
+  background: var(--dijk);
+}
+
 .sectie-kop {
-  max-width: var(--leesbreedte);
-  margin-bottom: 2.25rem;
+  max-width: 42rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
 }
 
 .sectie-kop > :last-child {
   margin-bottom: 0;
 }
 
-/* Naam en logo */
-.naam-raster {
-  display: grid;
-  gap: 2.5rem;
-  align-items: center;
+.midden {
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
 }
 
-.naam-raster .tekst-blok {
-  max-width: 36rem;
-}
-
-.logo-uitleg {
-  display: grid;
-  grid-template-columns: minmax(6rem, 9rem) 1fr;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.logo-uitleg dl {
-  margin: 0;
-}
-
-.logo-uitleg dl > div + div {
-  margin-top: 0.9rem;
-}
-
-.logo-uitleg dt {
-  color: var(--schemer);
-  font-family: var(--kop);
-  font-size: 1.15rem;
-  font-weight: 700;
-}
-
-.logo-uitleg dd {
-  margin: 0;
-}
-
-@media (min-width: 52rem) {
-  .naam-raster {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: 4rem;
-  }
-}
-
-/* Kernwaarden */
-.waarden {
+/* Drie beelden op een rij, zoals de foto's bij "Sociaal" op de site van De Warren */
+.drie-beelden {
   display: grid;
   gap: 2rem;
-  margin: 0;
+  max-width: 66rem;
+  margin: 0 auto 3rem;
   padding: 0;
   list-style: none;
 }
 
-.waarden li + li {
-  margin-top: 0;
-}
-
-.waarden h3 {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.waarden p {
+.drie-beelden figure {
   margin: 0;
+  text-align: center;
 }
 
-.hex-icoon {
-  flex: none;
-  width: 1.55rem;
-  height: auto;
+.drie-beelden img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--hoek);
+}
+
+.drie-beelden figcaption {
+  margin-top: 0.85rem;
+  line-height: 1.5;
+}
+
+.drie-beelden figcaption strong {
+  display: block;
+  color: var(--schemer);
+  font-family: var(--kop);
+  font-size: 1.2rem;
 }
 
 @media (min-width: 48rem) {
-  .waarden {
+  .drie-beelden {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2.5rem;
+  }
+}
+
+/* Twee kolommen tekst */
+.twee-kolommen {
+  display: grid;
+  gap: 0 3rem;
+  max-width: 62rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 52rem) {
+  .twee-kolommen {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -648,7 +773,8 @@ a:hover {
 .stappen-kort {
   display: grid;
   gap: 0;
-  margin: 0 0 1.75rem;
+  max-width: 64rem;
+  margin: 0 auto 2rem;
   padding: 0;
   list-style: none;
 }
@@ -702,14 +828,15 @@ a:hover {
   .stappen-kort li {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.6rem;
     padding-bottom: 0;
+    text-align: center;
   }
 
   .stappen-kort li::before {
-    left: 1rem;
-    right: -2rem;
+    left: 50%;
+    right: calc(-50% - 1rem);
     top: calc(1.125rem - 1px);
     bottom: auto;
     border-left: 0;
@@ -717,13 +844,12 @@ a:hover {
   }
 
   .stappen-kort .marker {
-    align-self: flex-start;
+    align-self: center;
   }
 }
 
 /* Volledige versie op de planpagina */
 .stappen {
-  max-width: 44rem;
   margin: 0 0 2rem;
   padding: 0;
   list-style: none;
@@ -764,30 +890,19 @@ a:hover {
   margin: 0;
 }
 
-/* ---------- Nieuws en meedoen (homepage) ---------- */
-.duo {
-  display: grid;
-  gap: 2.5rem;
-  align-items: start;
-}
-
-@media (min-width: 52rem) {
-  .duo {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 4rem;
-  }
-}
-
+/* ---------- Nieuws ---------- */
 .nieuws-lijst {
-  margin: 0 0 1.25rem;
+  max-width: 40rem;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
 }
 
 .nieuws-lijst li {
   margin: 0;
-  padding-block: 0.9rem;
+  padding-block: 1rem;
   border-top: 1px solid var(--lijn);
+  text-align: center;
 }
 
 .nieuws-lijst li:last-child {
@@ -802,78 +917,63 @@ a:hover {
 
 .nieuws-lijst a {
   font-family: var(--kop);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
 }
 
-.meedoen-blok {
-  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
-  border-radius: 1rem;
-  background: var(--was);
-}
-
-.meedoen-blok h2 {
-  margin-bottom: 0.4em;
-}
-
-.meedoen-blok .knop {
-  margin-top: 0.5rem;
-}
-
-.meedoen-blok .klein {
-  margin: 1rem 0 0;
-  color: var(--inkt);
-}
-
 /* ---------- Binnenpagina's ---------- */
-.paginakop {
-  padding-block: clamp(2.5rem, 1.75rem + 3vw, 4.5rem) clamp(1.5rem, 1rem + 2vw, 2.5rem);
-}
-
-.paginakop h1 {
-  max-width: 20ch;
-}
-
-.paginakop .lead {
-  max-width: 38rem;
-  margin: 0;
-  font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.375rem);
-  line-height: 1.5;
-}
-
 .inhoud {
-  padding-bottom: var(--sectie);
+  padding-block: clamp(3rem, 2rem + 3vw, 5rem);
 }
 
 .tekst {
   max-width: var(--leesbreedte);
+  margin-inline: auto;
 }
 
 .tekst h2 {
   margin-top: 2.5rem;
-  font-size: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+  font-size: clamp(1.6rem, 1.35rem + 1vw, 2.1rem);
 }
 
 .tekst > h2:first-child {
   margin-top: 0;
 }
 
+.tekst .knoppen {
+  justify-content: flex-start;
+}
+
 .stappen-sectie {
-  margin-block: 2.5rem;
+  max-width: var(--leesbreedte);
+  margin: 2.5rem auto;
 }
 
 .stappen-sectie h2 {
-  font-size: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+  font-size: clamp(1.6rem, 1.35rem + 1vw, 2.1rem);
 }
 
 .stappen-sectie > p {
-  max-width: var(--leesbreedte);
   margin-bottom: 1.5rem;
 }
 
-.meedoen-blok.los {
+.meedoen-blok {
   max-width: var(--leesbreedte);
-  margin-block: 2.5rem;
+  margin: 2.5rem auto;
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  border-radius: 1rem;
+  background: var(--was);
+}
+
+.meedoen-blok h2 {
+  margin-top: 0;
+  margin-bottom: 0.4em;
+  font-size: clamp(1.6rem, 1.35rem + 1vw, 2.1rem);
+}
+
+.meedoen-blok .klein {
+  margin: 1rem 0 0;
+  color: var(--inkt);
 }
 
 /* Genummerde stappen in lopende tekst */
@@ -897,7 +997,7 @@ a:hover {
   content: counter(stap);
   position: absolute;
   left: 0;
-  top: 0;
+  top: 0.1rem;
   display: grid;
   place-items: center;
   width: 1.85rem;
@@ -965,7 +1065,6 @@ a:hover {
 
 /* Tabel */
 .tabel-wrap {
-  max-width: var(--leesbreedte);
   margin-bottom: 1.5rem;
   overflow-x: auto;
 }
@@ -974,6 +1073,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
+  line-height: 1.5;
 }
 
 th,
@@ -985,7 +1085,7 @@ td {
 }
 
 thead th {
-  background: var(--wit);
+  background: var(--dijk);
   color: var(--schemer);
   font-family: var(--kop);
   font-size: 1.05rem;
@@ -993,6 +1093,7 @@ thead th {
 
 tbody th {
   color: var(--schemer);
+  font-family: var(--kop);
   font-weight: 700;
 }
 
@@ -1129,16 +1230,38 @@ tbody th {
   .concept,
   .menu-knop,
   .hoofdmenu,
-  .sla-over {
+  .sla-over,
+  .band-beeld,
+  .sterren,
+  .stad {
     display: none !important;
   }
 
-  .held {
-    background: none;
+  .kop {
+    position: static;
     color: var(--inkt);
   }
 
-  .held h1 {
+  .merk {
+    color: var(--schemer);
+  }
+
+  .held,
+  .band {
+    min-height: 0;
+    padding-block: 1.5rem;
+    background: none;
+    color: var(--inkt);
+    text-shadow: none;
+  }
+
+  .band::before {
+    display: none;
+  }
+
+  .held h1,
+  .band h1,
+  .band h2 {
     color: var(--schemer);
   }
 }

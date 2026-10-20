@@ -4,6 +4,8 @@ Dit is de website van wooncoöperatie Het Baailicht (in oprichting). Het zijn ge
 
 **Status:** conceptversie, oktober 2026. Zoekmachines worden geweerd tot de livegang.
 
+**Stijl:** de opbouw volgt de site van wooncoöperatie De Warren: grote beeldvlakken over de hele breedte, gecentreerde koppen, ronde knoppen en rustige witte blokken ertussen. Kleuren, logo en illustraties zijn van Het Baailicht zelf. De illustraties zijn tijdelijk; eigen foto's kunnen ze later vervangen.
+
 ## Wat wel en niet op de site hoort
 
 De site is openbaar. Zet er alleen algemene informatie op: wie we zijn, waar we voor staan en hoe je meedoet.
@@ -21,8 +23,8 @@ De site is openbaar. Zet er alleen algemene informatie op: wie we zijn, waar we 
 | `404.html` | Wat je ziet als een link niet bestaat |
 | `assets/css/style.css` | Alle opmaak. Kleuren en maten staan bovenaan als variabelen |
 | `assets/js/main.js` | Het enige script: het menu op een telefoon |
-| `assets/fonts/` | De lettertypes, met hun licentie (OFL-1.1) |
-| `assets/img/` | Het logo (voor lichte en donkere achtergrond) |
+| `assets/fonts/` | De lettertypes Bricolage Grotesque (koppen) en Literata (tekst), met hun licentie (OFL-1.1) |
+| `assets/img/` | Het logo (voor lichte en donkere achtergrond), de beeldvlakken (`band-…`) en de drie beelden bij het verhaal van de naam (`naam-…`) |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Icoontjes voor browser en telefoon |
 | `robots.txt`, `.well-known/security.txt`, `.nojekyll` | Technische bestanden. Laten staan |
 
@@ -37,6 +39,7 @@ Dubbelklik op `index.html`. De site opent in je browser.
 - **Nieuwsbericht toevoegen:** kopieer in `nieuws.html` een blok `<article class="bericht" ...>` naar boven, geef het een nieuwe `id` en pas titel, datum en tekst aan. Zet het bericht ook in het rijtje "Nieuws" op `index.html` (daar staan de nieuwste).
 - **De route van idee tot huis:** staat op twee plekken, kort op `index.html` en uitgebreid op `ons-plan.html`. Het is een algemene uitleg, niet onze eigen voortgang.
 - **Conceptmelding weghalen:** zoek op `Conceptversie` (bovenaan elke pagina).
+- **Een illustratie vervangen door een foto:** zet de foto in `assets/img/` (liefst als `.jpg`, ongeveer 1600 pixels breed) en verander in de pagina `band-honingraat.svg` (of `band-groen.svg`, `band-water.svg`) in de naam van je foto. De donkere sluier over het beeld blijft, zodat de tekst leesbaar blijft. Alleen foto's waarvan jullie de rechten hebben, en mensen alleen met hun toestemming.
 
 Twijfel je? Vraag het aan Claude en geef dit bestand mee.
 
@@ -73,10 +76,11 @@ Goed om te weten: zolang de site op `github.io/hetbaailicht-website/` staat, zie
 
 - HTML-validatie met html-validate: geen fouten
 - Toegankelijkheid met axe-core (WCAG 2.2 A en AA plus best practices), op computer en telefoon: geen fouten
+- Contrast van witte tekst op de beeldvlakken, gemeten op 320, 390 en 1280 pixels breed: minstens 9 : 1 (de norm is 4,5 : 1)
 - Menu op telefoon, toetsenbord, "direct naar de inhoud", zonder JavaScript en met "minder beweging": werkt
 - Alle interne links en ankers: werken; geen fouten of waarschuwingen in de browserconsole
 
 ## Licenties
 
-- Lettertypes: Bricolage Grotesque en Atkinson Hyperlegible Next, SIL Open Font License 1.1 (zie `assets/fonts/`)
-- Teksten, logo en illustratie: © Het Baailicht
+- Lettertypes: Bricolage Grotesque en Literata, SIL Open Font License 1.1 (zie `assets/fonts/`)
+- Teksten, logo en illustraties: © Het Baailicht

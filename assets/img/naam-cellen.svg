@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" overflow="hidden">
+<clipPath id="kader"><rect width="480" height="360"/></clipPath><g clip-path="url(#kader)">
+<rect width="480" height="360" fill="#FFE6A8"/>
+<g stroke-linejoin="round">
+<polygon points="160.3,180 200.2,203 200.2,249 160.3,272 120.5,249 120.5,203" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<polygon points="240,180 279.8,203 279.8,249 240,272 200.2,249 200.2,203" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<polygon points="319.7,180 359.5,203 359.5,249 319.7,272 279.8,249 279.8,203" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<polygon points="200.2,111 240,134 240,180 200.2,203 160.3,180 160.3,134" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<polygon points="279.8,111 319.7,134 319.7,180 279.8,203 240,180 240,134" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<polygon points="240,42 279.8,65 279.8,111 240,134 200.2,111 200.2,65" fill="#F2A93B" stroke="#16324F" stroke-width="5"/>
+<rect x="150.3" y="214" width="20" height="24" rx="2.4" fill="#FFE6A8" stroke="#16324F" stroke-width="2.5"/>
+<rect x="230" y="214" width="20" height="24" rx="2.4" fill="#C98A1E" stroke="#16324F" stroke-width="2.5"/>
+<rect x="309.7" y="214" width="20" height="24" rx="2.4" fill="#FFE6A8" stroke="#16324F" stroke-width="2.5"/>
+<rect x="190.2" y="145" width="20" height="24" rx="2.4" fill="#FFE6A8" stroke="#16324F" stroke-width="2.5"/>
+<rect x="269.8" y="145" width="20" height="24" rx="2.4" fill="#C98A1E" stroke="#16324F" stroke-width="2.5"/>
+<rect x="230" y="76" width="20" height="24" rx="2.4" fill="#FFE6A8" stroke="#16324F" stroke-width="2.5"/>
+</g>
+<g fill="none" stroke="#16324F" stroke-width="6" stroke-linecap="round"><path d="M144 298 q12 -8 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0"/><path d="M172 320 q11 -8 22 0 t22 0 t22 0 t22 0 t22 0 t22 0"/></g>
+</g>
+</svg>
